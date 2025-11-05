@@ -1,0 +1,71 @@
+# ~/.config/mako/config
+# ──────────────────────────────
+# 🌸 Mako — Elegant Notification Setup
+# Fully valid and Catppuccin Mocha themed
+# ──────────────────────────────
+
+# ── Font ──────────────────────
+font=JetBrainsMono Nerd Font 10
+
+# ── Colors (Catppuccin Mocha) ─
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#b4befe
+progress-color=over #313244
+
+# ── Geometry ──────────────────
+width=360
+height=120
+outer-margin=10,0,20
+margin=10
+padding=10
+border-size=2
+border-radius=12
+
+# ── Behavior ──────────────────
+max-history=200
+max-visible=5
+default-timeout=6000
+ignore-timeout=false
+group-by=app-name
+
+# ── Icons ─────────────────────
+icons=1
+icon-location=left
+max-icon-size=64
+icon-border-radius=8
+
+# ── Output & Layer ────────────
+output=DP-3
+layer=overlay
+
+# ── Placement ─────────────────
+anchor=top-right
+sort=-time
+text-alignment=left
+
+# ── Bindings ──────────────────
+on-button-left=invoke-default-action
+on-button-right=dismiss
+on-button-middle=dismiss-all
+
+# ── Format ────────────────────
+# Supported: %a (app), %s (summary), %b (body), %g (group size)
+markup=1
+format=<b>%a</b>\n<i>%s</i>\n%b
+
+# ── Urgency Overrides ─────────
+[urgency=low]
+border-color=#a6e3a1
+text-color=#a6e3a1
+progress-color=over #313244
+
+[urgency=normal]
+border-color=#b4befe
+text-color=#cdd6f4
+progress-color=over #313244
+
+[urgency=critical]
+border-color=#f38ba8
+text-color=#f38ba8
+default-timeout=0

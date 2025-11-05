@@ -1,0 +1,20 @@
+{
+  "include": [
+    "~/.config/waybar/modules/custom-music.jsonc",
+    "~/.config/waybar/modules/hyprland-workspaces.jsonc",
+    "~/.config/waybar/modules/tray.jsonc",
+    // "~/.config/waybar/modules/network.jsonc",
+    "~/.config/waybar/modules/custom-logo.jsonc",
+    "~/.config/waybar/modules/clock.jsonc",
+    "~/.config/waybar/modules/custom-clipboard.jsonc",
+  ],
+  "modules-left": ["custom/arch"],
+  "modules-center": ["custom/music"],
+  "modules-right": [
+    "tray",
+    // "hyprland/language",
+    // "network",
+    "custom/clipboard",
+    "clock#cl1",
+  ],
+}

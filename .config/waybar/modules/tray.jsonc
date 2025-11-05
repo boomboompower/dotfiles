@@ -1,0 +1,8 @@
+{
+  "tray": {
+    "spacing": 10,
+    "icons": {
+      "nm-applet": "network-wireless-signal-excellent-symbolic",
+    },
+  },
+}

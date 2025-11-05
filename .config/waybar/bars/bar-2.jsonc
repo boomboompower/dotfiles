@@ -1,0 +1,20 @@
+{
+  "include": [
+    "~/.config/waybar/modules/cpu.jsonc",
+    "~/.config/waybar/modules/memory.jsonc",
+    "~/.config/waybar/modules/custom-gpu-usage.jsonc",
+    "~/.config/waybar/modules/temperature-gpu.jsonc",
+    "~/.config/waybar/modules/temperature-cpu.jsonc",
+    "~/.config/waybar/modules/hyprland-workspaces.jsonc",
+    "~/.config/waybar/modules/custom-cava.jsonc",
+  ],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["custom/cava"],
+  "modules-right": [
+    "memory",
+    "cpu",
+    "temperature#cpu",
+    "custom/gpu-usage",
+    "temperature#gpu",
+  ],
+}

@@ -1,0 +1,6 @@
+[general]
+log_level = "info"
+data_dir = "~/.local/share/elephant"
+
+[providers]
+enabled = ["clipboard", "files", "bluetooth"]

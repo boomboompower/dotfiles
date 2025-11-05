@@ -1,0 +1,7 @@
+{
+  "custom/clipboard": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/clipboard_menu.sh",
+  },
+}

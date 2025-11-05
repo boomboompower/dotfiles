@@ -1,0 +1,61 @@
+/* ======= nwg-bar GTK-only Style ======= */
+
+/* Window background */
+window {
+    background-color: rgba(20, 20, 25, 0.25);
+    border: 2px solid rgba(120, 120, 130, 0.4);
+    border-radius: 12px;
+    padding: 0;
+}
+
+/* Outer container – the full layout area */
+#outer-box {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+/* Inner container – where the buttons live */
+#inner-box {
+    background-color: rgba(30, 30, 35, 0.9);
+    border-radius: 12px;
+    /* border: 1px solid rgba(120, 120, 130, 0.4); */
+    padding: 15px;
+    margin: 6px;
+}
+
+/* Remove button/image default look */
+button, image {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Buttons (text and icons) */
+button {
+	font-family: "Sans", "Noto Sans", "Cantarell", sans-serif;
+    font-size: 13px;
+    color: #d0d0d0;
+    padding: 10px 20px;
+    margin: 6px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 2px solid transparent;
+}
+
+/* Hover effect */
+button:hover {
+    background-color: rgba(120, 150, 255, 0.15);
+    border: 2px solid rgba(150, 170, 255, 0.4);
+    color: #ffffff;
+}
+
+/* Pressed (active) button */
+button:active {
+    background-color: rgba(150, 170, 255, 0.25);
+}
+
+/* Optional icon spacing */
+image {
+    margin-bottom: 4px;
+}

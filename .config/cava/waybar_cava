@@ -1,0 +1,11 @@
+[general]
+bars = 8
+bar_width = 1
+bar_spacing = 0
+framerate = 30
+
+[output]
+method = raw
+raw_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 7

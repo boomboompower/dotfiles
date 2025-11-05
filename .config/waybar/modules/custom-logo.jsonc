@@ -1,0 +1,8 @@
+{
+  "custom/arch": {
+    "format": "  ",
+    "tooltip": false,
+    "on-click": "walker",
+    "on-click-right": "nwg-bar",
+  },
+}

@@ -1,0 +1,1 @@
+blacklist = ["bssh", "btop", "bvnc", "xgps", "avahi-discover", "scrcpy"]
