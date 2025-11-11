@@ -1,411 +1,355 @@
-/* Variables */
-@define-color mantle #18121f;
-@define-color base rgb(28, 22, 38);
-@define-color text #eae3f8;
-@define-color surface0 #2d2340;
-@define-color surface2 #4a3b63;
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
 
-/* Hyprland-derived accents */
-@define-color active1 #9b59b6;
-@define-color active2 #8e44ad;
-@define-color inactive rgba(108, 52, 131, 0.67);
-@define-color check1 #a569df;
-@define-color check2 #5dade2;
-@define-color fail1 #c0392b;
-@define-color fail2 #8e44ad;
+/* COLORS */
 
-@define-color border rgba(165, 105, 223, 0.4);
-@define-color shadow rgb(24, 18, 31);
+@define-color bg        #24273a; /* base */
+@define-color light     #cad3f5; /* text */
+@define-color warning   #eed49f; /* yellow */
+@define-color critical  #ed8796; /* red */
+@define-color mode      #494d64; /* surface1 */
 
-/* Derived palette for consistency */
-@define-color blue #5dade2;
-@define-color green #58d68d;
-@define-color peach #f5a97f;
-@define-color rosewater #e8daef;
-@define-color lavender #d2b4de;
-@define-color yellow #f9e79f;
-@define-color red #c0392b;
-@define-color maroon #a93226;
-@define-color teal #48c9b0;
-@define-color sky #85c1e9;
-@define-color sapphire #7fb3d5;
-@define-color mauve #a569df;
-@define-color pink #f5bde6;
+@define-color workspacesfocused #5b6078; /* surface2 */
+@define-color tray     @workspacesfocused;
 
-* {
-    font-family: JetBrains Mono NF;
-    font-size: 13.5px;
-    min-height: 0;
+/* Functional hints */
+@define-color sound     #f5a97f; /* peach */
+@define-color network   #8aadf4; /* blue */
+@define-color memory    #7dc4e4; /* sapphire */
+@define-color cpu       #91d7e3; /* sky */
+@define-color temp      #8bd5ca; /* teal */
+@define-color layout    #c6a0f6; /* mauve */
+@define-color battery   #a6da95; /* green */
+@define-color date      #494d64; /* surface1 */
+@define-color time      #363a4f; /* surface0 */
+@define-color backlight #363a4f; /* surface0 */
+
+/* Nord→Catppuccin analogues */
+@define-color nord_bg        #494d64; /* surface1 */
+@define-color nord_bg_blue   #363a4f; /* surface2 */
+@define-color nord_light     #cad3f5; /* text */
+@define-color nord_light_font #cad3f5;
+@define-color nord_dark_font  #24273a; /* base */
+
+@keyframes blink-warning {
+    70% {
+        color: @light;
+    }
+
+    to {
+        color: @light;
+        background-color: @warning;
+    }
 }
 
-/* General Settings */
+@keyframes blink-critical {
+    70% {
+        color: @light;
+    }
+
+    to {
+        color: @light;
+        background-color: @critical;
+    }
+}
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0.2em 0.3em 0.2em 0.3em;
+}
+
+/* The whole bar */
+#waybar {
+    background: @bg;
+    color: @light;
+    font-family: "Adwaita Sans", "Font Awesome 5 Pro";
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Each module */
 #battery,
-#cava,
-#custom-cava,
-#custom-clipboard,
-#custom-notifications,
-#custom-arch,
-#custom-gpu-usage,
-#custom-updates,
-#mode,
+#clock,
 #cpu,
+#custom-layout,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#custom-arch,
+#custom-alsa,
+#custom-pacman,
+#custom-weather,
+#custom-gpu,
+#custom-gpu-usage,
+#custom-clipboard,
+#custom-arch,
+#hyprland-workspaces,
+#backlight,
+#language,
+#tray .active,
+#custom-cpugovernor {
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    transition: background-color 0.3s ease;
+}
+
+/* Each module that should blink */
+#mode,
 #memory,
 #temperature,
-#custom-music,
-#custom-fans,
-#clock,
-#idle_inhibitor,
-#bluetooth,
-#custom-wf-recorder,
-#pulseaudio,
-#backlight,
-#network,
-#tray,
-#custom-power-menu,
-#language,
-#window,
-#custom-weather,
-#custom-weather.severe,
-#custom-weather.sunnyDay,
-#custom-weather.clearNight,
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight,
-#custom-weather.rainyDay,
-#custom-weather.rainyNight,
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight,
-#custom-weather.default {
-    background-color: alpha(@base, 0.9);
-    padding: 0 10px;
-    margin: 2px 4px 5px 4px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 1px 1px alpha(@shadow, 0.7);
-    border: 2px solid @border;
-    background-clip: padding-box;
-}
-
-window#waybar {
-    color: @text;
-    background: transparent;
-}
-
-window#waybar.hidden {
-    opacity: 0;
-}
-
-#workspaces * {
-    font-size: 14px;
-}
-#workspaces button label {
-    color: @lavender;
-    font-weight: bolder;
-    transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-}
-
-#workspaces button.active label {
-    color: @base;
-    font-weight: bolder;
-}
-
-#workspaces button.urgent {
-    background-color: @red;
-}
-
-#workspaces button.urgent label {
-    color: @base;
-    font-weight: bolder;
-}
-
-#workspaces {
-    background-color: alpha(@base, 0.9);
-    border: 2px solid @border;
-    padding: 0 10px;
-    margin: 2px 4px 5px 4px;
-    box-shadow: 3px 3px 1px 1px alpha(@shadow, 0.7);
-    border-radius: 10px;
-    background-clip: padding-box;
-}
-
-#workspaces button {
-    border-radius: 15px;
-    margin-right: 3px;
-    margin-left: 3px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    padding: 0 5px;
-    font-weight: bolder;
-    min-width: 20px;
-    color: @base;
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-}
-
-#workspaces button.active {
-    padding-right: 6px;
-    padding-left: 6px;
-    box-shadow: 3px 3px 1px 1px alpha(@shadow, 0.7);
-    padding-bottom: 3px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background: linear-gradient(
-        52deg,
-        rgba(139, 213, 202, 1) 0%,
-        rgba(138, 173, 244, 1) 30%,
-        rgba(183, 189, 248, 1) 48%,
-        rgba(198, 160, 246, 1) 77%,
-        rgba(238, 153, 160, 1) 100%
-    );
-    background-size: 400% 400%;
-    /* animation: gradient 15s ease infinite; */
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-    color: @mauve;
-    border-radius: 12px;
-}
-
-#workspaces button:hover {
-    background-color: @surface0;
-}
-
-#workspaces button.focused:hover {
-    background-color: alpha(@base, 0.9);
-}
-
-#workspaces button.focused:hover label {
-    color: @text;
-}
-
-/* Individual Modules */
 #battery {
-    color: @mauve;
-}
-
-#battery.warning {
-    color: @yellow;
-}
-
-#battery.critical {
-    color: @peach;
-}
-
-#battery.urgent {
-    color: @red;
-}
-
-#custom-cava {
-    color: @lavender;
-    border-radius: 12px;
-}
-
-#cpu {
-    color: @blue;
-    transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-}
-
-#memory {
-    color: @green;
-    transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-}
-
-#custom-notifications {
-    color: @yellow;
-}
-
-#custom-weather {
-    color: @red;
-}
-
-#custom-updates {
-    color: @teal;
-}
-
-#custom-wf-recorder {
-    color: @red;
-}
-
-#custom-gpu-temp {
-    color: @peach;
-}
-
-#custom-gpu-usage {
-    color: @teal;
-}
-
-#custom-power-menu {
-    color: @red;
-}
-
-#temperature {
-    color: @peach;
-}
-
-#bluetooth {
-    color: @blue;
-}
-
-#window {
-    background: linear-gradient(
-        52deg,
-        rgba(139, 213, 202, 1) 0%,
-        rgba(138, 173, 244, 1) 30%,
-        rgba(183, 189, 248, 1) 48%,
-        rgba(198, 160, 246, 1) 77%,
-        rgba(238, 153, 160, 1) 100%
-    );
-    background-size: 400% 400%;
-    /* animation: gradient 15s ease infinite; */
-    text-shadow: 0px 0px 5px @lavender;
-    font-weight: bold;
-    color: @mantle;
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-    border: none;
-}
-
-#temperature.critical {
-    background-color: @red;
-    color: @mantle;
-}
-
-#custom-music {
-    background: @lavender;
-    background: linear-gradient(
-        52deg,
-        rgba(139, 213, 202, 1) 0%,
-        rgba(138, 173, 244, 1) 30%,
-        rgba(183, 189, 248, 1) 48%,
-        rgba(198, 160, 246, 1) 77%,
-        rgba(238, 153, 160, 1) 100%
-    );
-    background-size: 400% 400%;
-    /* animation: gradient 15s ease infinite; */
-    text-shadow: 0px 0px 5px @border;
-    font-weight: bold;
-    color: @mantle;
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-    border: none;
-}
-
-#custom-fans {
-    color: @green;
-}
-
-#clock {
-    color: @lavender;
-}
-
-#language {
-    color: @blue;
-}
-
-#pulseaudio {
-    color: @pink;
-}
-
-#pulseaudio.muted {
-    background-color: @red;
-    color: @mantle;
-}
-
-#pulseaudio.source-muted {
-    background-color: @peach;
-    color: @mantle;
-}
-
-#backlight {
-    color: @blue;
-}
-
-#battery {
-    color: @green;
-}
-
-#battery.charging,
-#battery.plugged {
-    background-color: @green;
-    color: @mantle;
-}
-
-#battery.critical:not(.charging) {
-    background-color: @red;
-    color: @mantle;
-    animation-name: blink;
-    animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
-#network {
-    color: @sky;
+/* Each critical module */
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical {
+    color: @critical;
 }
 
-#network.disconnected {
-    background-color: @red;
-    color: @mantle;
+/* Each critical that should blink */
+#mode,
+#memory.critical,
+#temperature.critical,
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
 }
 
-#network.linked {
-    background-color: @peach;
-    color: @mantle;
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning {
+    background: @warning;
+    color: @nord_dark_font;
 }
 
-#clock.cl2 {
-    background: @lavender;
-    background: linear-gradient(
-        52deg,
-        rgba(139, 213, 202, 1) 0%,
-        rgba(138, 173, 244, 1) 30%,
-        rgba(183, 189, 248, 1) 48%,
-        rgba(198, 160, 246, 1) 77%,
-        rgba(238, 153, 160, 1) 100%
-    );
-    background-size: 400% 400%;
-    /* animation: gradient 15s ease infinite; */
-    text-shadow: 0px 0px 5px @border;
+/* Each warning that should blink */
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+/* And now modules themselves in their respective order */
+
+#mode {
+    /* Shown current Sway mode (resize etc.) */
+    color: @light;
+    background: @mode;
+}
+
+/* Workspaces stuff */
+
+@define-color fg-color       @light;
+@define-color bg-color-ws    @workspacesfocused;
+@define-color alert-fg-color @nord_dark_font;
+@define-color alert-bg-color @warning;
+
+#workspaces button {
+    padding: 0 5px;
+    /* background-color: transparent; */
+    background-color: rgba(46, 52, 64, 0.3);
+    color: @fg-color;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: inherit;
+    border-bottom: 3px solid @fg-color;
+}
+
+#workspaces button.focused {
+    background-color: @bg-color-ws;
+    border-bottom: 3px solid @fg-color;
+}
+
+#workspaces button.active {
+    color: #f5bde6;
+}
+
+#workspaces button.urgent {
+    background-color: @alert-bg-color;
+    color: @alert-fg-color;
+}
+
+#window {
+    margin-right: 40px;
+    margin-left: 40px;
+    font-weight: normal;
+}
+#custom-arch {
+    background: @nord_bg;
     font-weight: bold;
-    color: @mantle;
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-    border: none;
+    padding: 0 0.6em;
+}
+#bluetooth {
+    background: @nord_bg;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 0.6em;
+}
+#custom-gpu,
+#custom-gpu-usage {
+    background: @nord_bg;
+    font-weight: bold;
+    padding: 0 0.6em;
+}
+#custom-weather {
+    background: @nord_bg;
+    font-weight: bold;
+    padding: 0 0.6em;
+}
+#custom-pacman {
+    background: @nord_bg;
+    font-weight: bold;
+    padding: 0 0.6em;
+}
+#custom-clipboard {
+    background: @nord_bg;
+    font-weight: bold;
+}
+#idle_inhibitor {
+    background: @nord_bg;
+    /*font-size: 1.6em;*/
+    font-weight: bold;
+    padding: 0 0.6em;
+}
+#custom-alsa {
+    background: @sound;
 }
 
-/* Animation Keyframes */
-@keyframes blink {
-    to {
-        background-color: alpha(@base, 0.9);
-        color: @red;
-    }
+#network {
+    background: @nord_bg;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+#memory {
+    background: @nord_bg;
 }
 
-@keyframes gradient_f {
-    0% {
-        background-position: 0% 200%;
-    }
-
-    50% {
-        background-position: 200% 0%;
-    }
-
-    100% {
-        background-position: 400% 200%;
-    }
+#cpu {
+    background: @nord_bg;
+    color: #d8dee9;
+}
+#cpu.critical {
+    background: @critical;
+    color: @nord_dark_font;
+}
+#language {
+    background: @nord_bg_blue;
+    color: #d8dee9;
+    padding: 0 0.4em;
+}
+#custom-cpugovernor {
+    background-color: @nord_light;
+    color: @nord_dark_font;
+}
+#custom-cpugovernor.perf {
+}
+#temperature {
+    background-color: @nord_bg;
+    color: #d8dee9;
+}
+#temperature.critical {
+    background: @critical;
+    color: @nord_dark_font;
+}
+#custom-layout {
+    background: @layout;
 }
 
-@keyframes gradient_f_nh {
-    0% {
-        background-position: 0% 200%;
-    }
+#battery {
+    background: @battery;
+}
 
-    100% {
-        background-position: 200% 200%;
-    }
+#backlight {
+    background: @backlight;
+}
+
+#clock {
+    background: @nord_bg;
+    color: #d8dee9;
+}
+#clock.date {
+    background: @date;
+}
+
+#clock.time {
+    background: @mode;
+}
+
+#pulseaudio {
+    /* Unsused but kept for those who needs it */
+    background: @nord_bg;
+    color: #d8dee9;
+}
+
+#pulseaudio.muted {
+    background: @nord_light;
+    color: @nord_dark_font;
+    /* No styles */
+}
+#pulseaudio.source-muted {
+    background: @nord_light;
+    color: @nord_dark_font;
+    /* No styles */
+}
+#tray .active {
+    background: @nord_bg;
+    color: #d8dee9;
+}
+
+#tray .active image {
+    padding: 0 0.6em;
+}
+
+/* Button hover effects for all the nord-themed modules */
+#idle_inhibitor:hover,
+#battery:hover,
+#clock:hover,
+#cpu:hover,
+#custom-layout:hover,
+#memory:hover,
+#mode:hover,
+#network:hover,
+#pulseaudio:hover,
+#temperature:hover,
+#custom-arch:hover,
+#custom-alsa:hover,
+#custom-pacman:hover,
+#custom-weather:hover,
+#custom-gpu:hover,
+#custom-gpu-usage:hover,
+#custom-clipboard:hover,
+#custom-arch:hover,
+#tray .active:hover,
+#hyprland-workspaces:hover,
+#backlight:hover,
+#language:hover,
+#custom-cpugovernor:hover {
+    background: @nord_bg_blue;
+    box-shadow: inherit;
+}
+
+#idle_inhibitor.activated {
+    background: @nord_light;
+    color: @nord_dark_font;
+    /* No styles */
+}
+#idle_inhibitor.activated:hover {
+    /*Even lighter*/
+    background: #e5e9f0;
+    /* No styles */
 }

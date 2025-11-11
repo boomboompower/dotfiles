@@ -1,0 +1,12 @@
+{
+  "custom/pacman": {
+    "format": "   {}",
+    "interval": 3600, // every hour
+    "exec": "count=$(pacman -Qu | wc -l); [ \"$count\" -eq 0 ] && echo '0' || echo $count",
+    "exec-if": "exit 0", // always run; consider advanced run conditions
+    "on-click": "pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY kitty -e yay & wait $!; pkill -SIGRTMIN+8 waybar", // update system
+    "signal": 8,
+    "max-length": 5,
+    "min-length": 3,
+  },
+}

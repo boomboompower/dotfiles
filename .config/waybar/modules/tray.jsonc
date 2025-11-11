@@ -1,8 +1,15 @@
 {
   "tray": {
-    "spacing": 10,
+    "spacing": 5,
     "icons": {
+      "discord": "discord-symbolic",
       "nm-applet": "network-wireless-signal-excellent-symbolic",
+      "blueman-applet": "bluetooth-symbolic",
+      "pasystray": "audio-headphones-symbolic",
+      "volumeicon": "audio-volume-high-symbolic",
+      "xfce4-power-manager": "battery-full-charged-symbolic",
+      "caffeine": "preferences-system-power-symbolic",
+      "default": "application-x-executable-symbolic",
     },
   },
 }

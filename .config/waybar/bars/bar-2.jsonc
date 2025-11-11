@@ -7,10 +7,12 @@
     "~/.config/waybar/modules/temperature-cpu.jsonc",
     "~/.config/waybar/modules/hyprland-workspaces.jsonc",
     "~/.config/waybar/modules/custom-cava.jsonc",
+    "~/.config/waybar/modules/pulseaudio.jsonc",
   ],
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["custom/cava"],
   "modules-right": [
+    "pulseaudio",
     "memory",
     "cpu",
     "temperature#cpu",
