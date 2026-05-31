@@ -1,0 +1,7 @@
+@import "default.css";
+
+.notification-popup {
+    background-color: rgba(0, 0, 0, 0.7); /* semi‑transparent background */
+    border-radius: 12px;
+    padding: 12px;
+}

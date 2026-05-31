@@ -1,8 +1,0 @@
-{
-  "clock": {
-    "format": "  {:%H:%M   %e %b}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "today-format": "<b>{}</b>",
-    "on-click": "notify-send 'Today' \"$(date '+%A, %d %B %Y')\"",
-  },
-}

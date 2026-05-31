@@ -1,9 +1,0 @@
-{
-  "custom/gpu-usage": {
-    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader",
-    "on-click": "kitty -e btop",
-    "format": "GPU: {}",
-    "return-type": "",
-    "interval": 2,
-  },
-}

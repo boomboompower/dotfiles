@@ -1,0 +1,26 @@
+-- Configuring Layouts in Hyprland
+
+--
+-- Dwindle is a BSPWM-like layout, where every window on a workspace is a member of a binary tree.
+-- Each time a new window is opened, the currently focused window is split either horizontally or vertically.
+--
+-- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
+hl.config({
+    dwindle = {
+        --        pseudotile     = true, -- Master switch for pseudotiling. Enabling is bound to mainMod + P
+        preserve_split = true, -- You probably want this
+    },
+})
+
+--
+-- The master layout configuration, makes one (or more) window(s) be the "master",
+-- taking (by default) the left part of the screen, and tiles the rest on the right.
+-- Each time a new window is opened, it is added to the master area until the number of
+-- master windows is reached, after which new windows are added to the stack area.
+--
+-- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
+hl.config({
+    master = {
+        new_status = "master",
+    },
+})
