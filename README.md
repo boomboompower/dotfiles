@@ -144,10 +144,6 @@ Highlights:
 * `elephant/` holds desktop application metadata.
 * `Kvantum/` supports themed Qt styling to help GTK/Qt match visually.
 
-Some extra texture:
-
-Cava’s fragment shaders in `cava/shaders/` let the visualizer speak in different dialects: from classic spectrograms to “eye of phi” wisdom. Spicetify themes roam freely like butterflies of CSS. Waybar feels more like a small instrument toolbox, each JSONC module a quiet gear.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
