@@ -62,17 +62,18 @@ The setup focuses on a lightweight workflow with fast terminal access, smooth an
 
 The core stack:
 
-| Component          | Package                                                                                           | Install                                                            |
-|--------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
-| Terminal           | [Kitty](https://github.com/kovidgoyal/kitty)                                                      | `pacman -S kitty`                                                  |
-| Shell              | [Zsh](https://wiki.archlinux.org/title/Zsh) + [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)     | `pacman -S zsh` and [install ohmyzsh](https://ohmyz.sh/)           |
-| WM / Compositor    | [Hyprland](https://github.com/hyprwm/Hyprland)                                                    | `pacman -S hyprland`                                               |
-| Status Bar         | [Waybar](https://github.com/Alexays/Waybar)                                                       | `pacman -S waybar`                                                 |
-| Editor             | [Zed](https://github.com/zed-industries/zed)                                                      | `pacman -S zed`                                                    |
-| File Manager       | [Dolphin](https://github.com/KDE/dolphin)                                                         | `pacman -S dolphin`                                                |
-| System Info        | [fastfetch](https://github.com/fastfetch-cli/fastfetch)                                           | `pacman -S fastfetch`                                              |
-| Action Menu        | [nwg-bar](https://github.com/nwg-piotr/nwg-bar)                                                   | `pacman -S nwg-bar`                                                |
-| Launcher           | [Walker](https://github.com/abenz1267/walker) + [Elephant](https://github.com/abenz1267/Elephant) | `yay -S walker dolphin`<sup>AUR</sup>                              |
+| Component           | Package                                                                                           | Install                                                            |
+|---------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| Terminal            | [Kitty](https://github.com/kovidgoyal/kitty)                                                      | `pacman -S kitty`                                                  |
+| Shell               | [Zsh](https://wiki.archlinux.org/title/Zsh) + [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)     | `pacman -S zsh` and [install ohmyzsh](https://ohmyz.sh/)           |
+| WM / Compositor     | [Hyprland](https://github.com/hyprwm/Hyprland)                                                    | `pacman -S hyprland`                                               |
+| Status Bar          | [Waybar](https://github.com/Alexays/Waybar)                                                       | `pacman -S waybar`                                                 |
+| Editor              | [Zed](https://github.com/zed-industries/zed)                                                      | `pacman -S zed`                                                    |
+| File Manager        | [Dolphin](https://github.com/KDE/dolphin)                                                         | `pacman -S dolphin`                                                |
+| System Info         | [fastfetch](https://github.com/fastfetch-cli/fastfetch)                                           | `pacman -S fastfetch`                                              |
+| Action Menu         | [ashell](https://github.com/MalpenZibo/ashell)                                                    | `yay -S ashell`<sup>AUR</sup>                                      |
+| Launcher            | [Walker](https://github.com/abenz1267/walker) + [Elephant](https://github.com/abenz1267/Elephant) | `yay -S walker elephant`<sup>AUR</sup>                             |
+| Notification Daemon | [histui](https://github.com/jmylchreest/histui)                                                   | `yay -S histui-bin`<sup>AUR</sup>                                  |
 
 
 
@@ -83,12 +84,13 @@ The core stack:
 <!-- FEATURES -->
 ### Features
 
-* Fully modular Hyprland configuration (`hypr/conf/*`)
+* Fully modular Hyprland configuration (`hypr/conf/*`) using new lua system.
 * GTK + Kvantum theming with Catppuccin influence
-* Waybar modules for workspaces, temperature, network, music, notifications, and GPU/CPU usage
+* ashell modules for workspaces, temperature, network, music, notifications, and GPU/CPU usage
 * Kitty + Zsh with theme support
 * Cava visualizer integrations
 * Dolphin + KDE integration details for file handling
+* histui for notifications
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,15 +134,15 @@ Configurations live at:
 Highlights:
 
 * `hypr/` holds compositor logic: rules, animations, monitors, and autostart programs. Individual files separate concerns such as appearance, inputs, gestures, layouts, workspace logic, plugins, and window rules.
-* `waybar/` provides status bar configuration, including two bar layouts (`bars/`), theme styles, icons, and JSONC modules for CPU, GPU, weather, clipboard, workspaces, and more.
+* `ashell/` provides status bar configuration, including a dedicated walker launcher. 
 * `kitty/` stores terminal settings and Catppuccin-based themes.
 * `zed/` contains editor preferences and themes for consistent syntax highlighting.
 * `cava/` includes audio visualizer configurations, themes, and a shader collection for various waveform aesthetics.
-* `mako/` configures notification behavior to keep popups minimal.
+* `histui/` configures notification behavior to keep popups minimal.
 * `fastfetch/` offers a themed system info layout.
 * `dolphin/` + KDE config files store file-manager tweaks and MIME integration.
-* `Kvantum/` supports themed Qt styling to help GTK/Qt match visually.
 * `elephant/` holds desktop application metadata.
+* `Kvantum/` supports themed Qt styling to help GTK/Qt match visually.
 
 Some extra texture:
 
