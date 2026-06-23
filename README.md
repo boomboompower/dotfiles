@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/boomboompower/dotfiles">
-    <img src=".github/main-theme.png" alt="Logo" width="854" height="480">
+    <img src="https://raw.githubusercontent.com/boomboompower/dotfiles/refs/heads/main/.github/main-theme.png" alt="Logo" width="854" height="480">
   </a>
 
 <h3 align="center">
